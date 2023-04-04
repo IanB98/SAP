@@ -1,0 +1,24 @@
+<head>
+  <%= render "layouts/header"%>
+</head>
+<body>
+  <% if current_user %>
+    <h1>USERS</h1>
+      <u1>
+        <% @users.each do |user| %>
+          <li>
+            <%= link_to user.email, user %>
+          </li>
+        <% end %>
+      </u1>
+
+  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <p>You are not signed in</p>
+    <%= link_to "Sign Up", new_user_registration_path %>|
+    <%= link_to "Login", new_user_session_path %>
+  <% end %>
+</body>
+<footer>
+  <%= render "layouts/footer"%>
+</footer>
