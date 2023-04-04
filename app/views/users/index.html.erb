@@ -4,14 +4,15 @@
 <body>
   <% if current_user %>
     <h1>USERS</h1>
+    <hr />
       <u1>
         <% @users.each do |user| %>
           <li>
             <%= link_to user.email, user %>
+            <hr />
           </li>
         <% end %>
       </u1>
-
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
   <% else %>
     <p>You are not signed in</p>
